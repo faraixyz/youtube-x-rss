@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.Title }}</title>
+    <meta name="description" content="{{ .Description }}">
+    {{ hugo.Generator }}
+    <link rel="canonical" href="{{ .Permalink }}">
+</head>
+<body>
+    <main>
+        <div>
+            <div>
+                <h1>{{ site.Title }}</h1>
+                <p>{{ .Description }}</p>
+                <details open>
+                    <summary>Instructions</summary>
+                    {{ .Content }}
+                </details>
+            </div>
+            <div>
+                <form action="/" method="get" name="getRSSFeedURL" id="getRSSFeedURL" class="getRSSFeedURL">
+                    <label for="getRSSFeedURL__url-input" class="getRSSFeedURL__url-label">Enter a YouTube Channel or Playlist URL</label>
+                    <input type="url" name="url" id="getRSSFeedURL__url-input" required>
+                    <button type="submit" class="getRSSFeedURL__submit">Get RSS Feed</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
