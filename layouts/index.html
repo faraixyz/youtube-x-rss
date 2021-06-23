@@ -12,22 +12,24 @@
 </head>
 <body>
     <main>
-        <div>
-            <div>
+        <div class="info">
+            <div class="info__header">
                 <h1>{{ site.Title }}</h1>
                 <p>{{ .Description }}</p>
-                <details open>
-                    <summary>Instructions</summary>
+            </div>
+            <details open class="info__instructions">
+                <summary class="info__instructions__summary">Instructions</summary>
+                <div class="info__instructions__desc">
                     {{ .Content }}
-                </details>
-            </div>
-            <div>
-                <form action="/" method="get" name="getRSSFeedURL" id="getRSSFeedURL" class="getRSSFeedURL">
-                    <label for="getRSSFeedURL__url-input" class="getRSSFeedURL__url-label">Enter a YouTube Channel or Playlist URL</label>
-                    <input type="url" name="url" id="getRSSFeedURL__url-input" required>
-                    <button type="submit" class="getRSSFeedURL__submit">Get RSS Feed</button>
-                </form>
-            </div>
+                </div>
+            </details>
+        </div>
+        <div>
+            <form action="/" method="get" name="getRSSFeedURL" id="getRSSFeedURL" class="getRSSFeedURL">
+                <label for="getRSSFeedURL__url-input" class="getRSSFeedURL__url-label">Enter a YouTube Channel or Playlist URL</label>
+                <input type="url" name="url" id="getRSSFeedURL__url-input" required>
+                <button type="submit" class="getRSSFeedURL__submit">Get RSS Feed</button>
+            </form>
         </div>
     </main>
 </body>
