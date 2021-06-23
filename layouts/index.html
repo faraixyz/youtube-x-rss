@@ -8,6 +8,7 @@
     <meta name="description" content="{{ .Description }}">
     {{ hugo.Generator }}
     <link rel="canonical" href="{{ .Permalink }}">
+    {{ partialCached "style.html" . }}
 </head>
 <body>
     <main>
