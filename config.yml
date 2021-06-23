@@ -1,0 +1,12 @@
+title: YouTube x RSS
+baseURL: https://faraixyz.github.io/youtube-x-rss/
+languageCode: en-zw
+disableKinds: [RSS, sitemap, taxonomy, term]
+
+author:
+  name: Farai Gandiya
+  email: gandiyafarai@gmail.com
+  website: https://codelab.farai.xyz
+  monetization: $ilp.uphold.com/8DZEnaeQBHNd
+  twitter: faraixyz
+  twitter_id: 1116159065820995584
