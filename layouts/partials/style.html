@@ -24,6 +24,10 @@ body {
     word-wrap: break-word;
 }
 
+button, input, textarea {
+    font-size: 1em;
+}
+
 .info > * + * {
     margin-top: 1rem;
 }
@@ -62,5 +66,29 @@ body {
 
 .getRSSFeedURL__submit {
     width: max-content;
+}
+
+.feed-output h2 {
+    text-align: center;
+}
+
+.feed-output {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 0;
+    max-width: 40ch;
+}
+
+.feed-output textarea {
+    max-width: 100%;
+}
+
+.feed-output__actions {
+    align-self: center;
+    margin: 0.5rem;
+}
+
+[hidden] {
+    display: none !important;
 }
 </style>
