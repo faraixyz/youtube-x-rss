@@ -9,6 +9,9 @@
     {{ hugo.Generator }}
     <link rel="canonical" href="{{ .Permalink }}">
     {{ partialCached "style.html" . }}
+    {{ with site.Author.monetization }}
+    <meta name="monetization" content="{{ . }}">
+    {{ end }}
 </head>
 <body>
     <main>
@@ -25,21 +28,28 @@
             </details>
         </div>
         <div>
-            <form action="/" method="get" name="getRSSFeedURL" id="getRSSFeedURL" class="getRSSFeedURL">
+            <form action="/" method="get" name="rssForm" id="getRSSFeedURL" class="getRSSFeedURL">
                 <label for="getRSSFeedURL__url-input" class="getRSSFeedURL__url-label">Enter a YouTube Channel or Playlist URL</label>
                 <input type="url" name="url" id="getRSSFeedURL__url-input" required>
                 <button type="submit" class="getRSSFeedURL__submit">Get RSS Feed</button>
             </form>
         </div>
-        <div class="feed-output">
+        <div class="feed-output" hidden>
             <h2>Your RSS Feed</h2>
-            <a href="#">View RSS Feed</a>
-            <textarea id="feedURL" cols="30" rows="1" readonly></textarea>
+            <a href="#" id="feed-output__link">View RSS Feed</a>
+            <textarea id="feed-output__area" cols="30" rows="1" readonly></textarea>
             <div class="feed-output__actions">
                 <button data-copy>Copy</button>
                 <button data-share hidden>Share</button>
             </div>
+            <p id="output__status" role="alert">&nbsp;</p>
         </div>
     </main>
+    <footer>
+        <p>Created by <a href="https://codelab.farai.xyz">Farai Gandiya</a> using <a href="https://gohugo.io">Hugo</a>. <a href="https://github.com/faraixyz/youtube-x-rss">Source Code</a>.</p>
+    </footer>
+    {{ $index := resources.Get "js/index.js" }}
+    {{ $js := $index | js.Build (dict "externals" (slice "url")) }}
+    <script src="{{ $js.Permalink }}"></script>
 </body>
 </html>

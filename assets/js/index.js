@@ -2,11 +2,11 @@ import * as YTXR from './ytxr/ytxr-lib.js';
 
 const rssForm = document.forms['rssForm']
 const urlInput = rssForm.url
-const outputArea = document.getElementById('output')
-const outputURLArea = document.getElementById('output__url')
-const outputLink = document.getElementById('output__link')
-const outputCopy = document.getElementById('output__copy')
-const outputShare = document.getElementById('output__share')
+const outputArea = document.querySelector('.feed-output')
+const outputURLArea = document.getElementById('feed-output__area')
+const outputLink = document.getElementById('feed-output__link')
+const outputCopy = document.querySelector('button[data-copy]')
+const outputShare = document.querySelector('button[data-share]')
 const outputStatus = document.getElementById('output__status')
 
 if ("share" in navigator) {
@@ -29,6 +29,7 @@ rssForm.addEventListener('submit', function(event) {
         const rssFeedURL = YTXR.getRSSFeed(url)
         showFeedURL(rssFeedURL)
         urlInput.setCustomValidity('')
+        outputCopy.focus()
     } catch (error) {
         console.error(error)
         urlInput.setCustomValidity(error.message)
@@ -45,7 +46,7 @@ function showFeedURL (url) {
 function flashMsg (msg) {
     outputStatus.innerText = msg
     setTimeout(function() {
-        outputStatus.innerText = ''
+        outputStatus.innerHTML = '&nbsp;'
     }, 5000)
 }
 
